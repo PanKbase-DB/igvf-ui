@@ -90,7 +90,7 @@ export function DonorDataItems({ item, diabetesStatus = [], otherTissue = [], ch
       {item.genetic_ethnicities?.length > 0 && (
         <>
           <DataItemLabel>Predicted Genetic Ancestry</DataItemLabel>
-          <DataItemValue>{item.genetic_ethnicities.join(",")}</DataItemValue>
+          <DataItemValue>{item.genetic_ethnicities.join(", ")}</DataItemValue>
         </>
       )}
       {item.ethnicities?.length > 0 && (
@@ -178,10 +178,10 @@ export function DonorDataItems({ item, diabetesStatus = [], otherTissue = [], ch
           <DataItemValue>{item.cause_of_death}</DataItemValue>
         </>
       )}
-      {item.glucose_loweing_theraphy !== undefined && (
+      {item.glucose_loweing_theraphy?.length > 0  && (
         <>
           <DataItemLabel>Glucose Lowering Therapy</DataItemLabel>
-          <DataItemValue>{item.glucose_loweing_theraphy}</DataItemValue>
+              <DataItemValue>{item.glucose_loweing_theraphy.join(", ")}</DataItemValue>
         </>
       )}
       {item.hospital_stay !== undefined && (
