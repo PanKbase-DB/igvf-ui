@@ -258,7 +258,7 @@ export function DonorDataItems({ item, diabetesStatus = [], otherTissue = [], ch
           </DataItemValue>
         </>
       )}
-      {otherTissue.length > 0 && (
+      {otherTissue?.length > 0 && (
         <>
           <DataItemLabel>Other Tissues Available</DataItemLabel>
           <DataItemValue>
