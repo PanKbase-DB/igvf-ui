@@ -129,19 +129,24 @@ export function DonorDataItems({ item, diabetesStatus = [], otherTissue = [], ch
           <DataItemValue>{item.living_donor ? "true" : "false"}</DataItemValue>
         </>
       )}
-      {diabetesStatus?.length > 0 && (
+      {diabetesStatus?.length > 0 ? (
         <>
           <DataItemLabel>Diabetes Status</DataItemLabel>
           <DataItemValue>
           <SeparatedList>
-              {diabetesStatus.map((status) => (
-              <Link key={status["@id"]} href={status["@id"]}>
-              {status.term_id}
-              </Link>
-              ))}
-          </SeparatedList>
-          </DataItemValue>
-        </>
+          {diabetesStatus.map((status) => (
+          <Link key={status["@id"]} href={status["@id"]}>
+            {status.term_id}
+          </Link>
+        ))}
+      </SeparatedList>
+      </DataItemValue>
+      </>
+      ) : (
+      <>
+      <DataItemLabel>Diabetes Status</DataItemLabel>
+      <DataItemValue>Not available</DataItemValue>
+      </>
       )}
       {item.diabetes_status_description && (
         <>
@@ -258,19 +263,24 @@ export function DonorDataItems({ item, diabetesStatus = [], otherTissue = [], ch
           </DataItemValue>
         </>
       )}
-      {otherTissue?.length > 0 && (
+      {otherTissue?.length > 0 ? (
         <>
-          <DataItemLabel>Other Tissues Available</DataItemLabel>
-          <DataItemValue>
-          <SeparatedList>
-              {otherTissue.map((tissue) => (
-              <Link key={tissue["@id"]} href={tissue["@id"]}>
-              {tissue.term_id}
-              </Link>
-              ))}
-          </SeparatedList>
-          </DataItemValue>
+        <DataItemLabel>Other Tissues Available</DataItemLabel>
+        <DataItemValue>
+        <SeparatedList>
+         {otherTissue.map((tissue) => (
+          <Link key={tissue["@id"]} href={tissue["@id"]}>
+            {tissue.term_id}
+          </Link>
+        ))}
+        </SeparatedList>
+        </DataItemValue>
         </>
+        ) : (
+       <>
+       <DataItemLabel>Other Tissues Available</DataItemLabel>
+       <DataItemValue>Not available</DataItemValue>
+       </>
       )}
       {/* Supplementary Information */}
       {item.phenotypic_features?.length > 0 && (
