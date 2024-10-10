@@ -74,13 +74,13 @@ export function DonorDataItems({ item, diabetesStatus = [], otherTissue = [], ch
           <DataItemValue>{item.sex}</DataItemValue>
               </>
       )}
-      {item.age !== undefined && (
+      {item.age > 0 && (
         <>
           <DataItemLabel>Age (years)</DataItemLabel>
           <DataItemValue>{item.age}</DataItemValue>
         </>
       )}
-      {item.bmi !== undefined && (
+      {item.bmi > 0 && (
         <>
           <DataItemLabel>BMI</DataItemLabel>
           <DataItemValue>{item.bmi}</DataItemValue>
@@ -90,7 +90,7 @@ export function DonorDataItems({ item, diabetesStatus = [], otherTissue = [], ch
       {item.genetic_ethnicities?.length > 0 && (
         <>
           <DataItemLabel>Predicted Genetic Ancestry</DataItemLabel>
-          <DataItemValue>{item.genetic_ethnicities(", ")}</DataItemValue>
+          <DataItemValue>{item.genetic_ethnicities.join(",")}</DataItemValue>
         </>
       )}
       {item.ethnicities?.length > 0 && (
@@ -117,10 +117,10 @@ export function DonorDataItems({ item, diabetesStatus = [], otherTissue = [], ch
           <DataItemValue>{item.family_history_of_diabetes}</DataItemValue>
         </>
       )}
-      {item.family_history_of_diabetes_relationship !== undefined && (
+      {item.family_history_of_diabetes_relationship?.length > 0 && (
         <>
           <DataItemLabel>Relationship Type</DataItemLabel>
-          <DataItemValue>{item.family_history_of_diabetes_relationship}</DataItemValue>
+              <DataItemValue>{item.family_history_of_diabetes_relationship.join(",")}</DataItemValue>
         </>
       )}
       {item.living_donor !== undefined && (
@@ -206,7 +206,7 @@ export function DonorDataItems({ item, diabetesStatus = [], otherTissue = [], ch
       {item.aab_gada !== undefined && (
         <>
           <DataItemLabel>AAB GADA Positive</DataItemLabel>
-          <DataItemValue>{item.aab_gada ? "True" : "False"}</DataItemValue>
+          <DataItemValue>{item.aab_gada ? "true" : "false"}</DataItemValue>
         </>
       )}
       {item.aab_ia2_value !== undefined && (
@@ -218,7 +218,7 @@ export function DonorDataItems({ item, diabetesStatus = [], otherTissue = [], ch
       {item.aab_ia2 !== undefined && (
         <>
           <DataItemLabel>AAB IA2 Positive</DataItemLabel>
-          <DataItemValue>{item.aab_ia2 ? "True" : "False"}</DataItemValue>
+          <DataItemValue>{item.aab_ia2 ? "true" : "false"}</DataItemValue>
         </>
       )}
       {item.aab_znt8_value !== undefined && (
@@ -230,7 +230,7 @@ export function DonorDataItems({ item, diabetesStatus = [], otherTissue = [], ch
       {item.aab_znt8 !== undefined && (
         <>
           <DataItemLabel>AAB ZNT8 Positive</DataItemLabel>
-          <DataItemValue>{item.aab_znt8 ? "True" : "False"}</DataItemValue>
+          <DataItemValue>{item.aab_znt8 ? "true" : "false"}</DataItemValue>
         </>
       )}
       </DataArea>
@@ -273,10 +273,10 @@ export function DonorDataItems({ item, diabetesStatus = [], otherTissue = [], ch
         </>
       )}
       {/* Supplementary Information */}
-      {item.phenotypic_features !== undefined && (
+      {item.phenotypic_features?.length > 0 && (
         <>
           <DataItemLabel>Phenotypic Features</DataItemLabel>
-          <DataItemValue>{item.phenotypic_features}</DataItemValue>
+              <DataItemValue>{item.phenotypic_features.join(", ")}</DataItemValue>
         </>
       )}
       {item.description !== undefined && (
@@ -342,6 +342,8 @@ DonorDataItems.commonProperties = [
   "rrid",
   "center_donor_id",
   "biological_sex",
+  "family_history_of_diabetes",
+  "family_history_of_diabetes_relationship",
   "age",
   "sex",
   "bmi",
