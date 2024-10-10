@@ -145,7 +145,7 @@ export function DonorDataItems({ item, diabetesStatus = [], otherTissue = [], ch
       ) : (
       <>
       <DataItemLabel>Diabetes Status</DataItemLabel>
-      <DataItemValue>Not available</DataItemValue>
+      <DataItemValue>No ontology term available</DataItemValue>
       </>
       )}
       {item.diabetes_status_description && (
@@ -279,7 +279,7 @@ export function DonorDataItems({ item, diabetesStatus = [], otherTissue = [], ch
         ) : (
        <>
        <DataItemLabel>Other Tissues Available</DataItemLabel>
-       <DataItemValue>Not available</DataItemValue>
+       <DataItemValue>No ontology term</DataItemValue>
        </>
       )}
       {/* Supplementary Information */}
