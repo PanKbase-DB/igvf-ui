@@ -199,6 +199,10 @@ export function DonorDataItems({ item, diabetesStatus = [], otherTissue = [], ch
       </DataArea>
       </DataPanel>
       {/* Immunological Information */}
+      {(item.aab_gada_value !== undefined || item.aab_gada !== undefined ||
+      item.aab_ia2_value !== undefined || item.aab_ia2 !== undefined ||
+      item.aab_znt8_value !== undefined || item.aab_znt8 !== undefined) && (
+      <>
       <DataAreaTitle>Auto Antibodies</DataAreaTitle>
       <DataPanel>
       <DataArea>
@@ -240,17 +244,19 @@ export function DonorDataItems({ item, diabetesStatus = [], otherTissue = [], ch
       )}
       </DataArea>
       </DataPanel>
+        </>
+      )}
+      {item.hla_typing !== undefined && (
+      <>
       <DataAreaTitle>HLA Typing</DataAreaTitle>
       <DataPanel>
       <DataArea>
-      {item.hla_typing !== undefined && (
-        <>
           <DataItemLabel>HLA Typing</DataItemLabel>
           <DataItemValue>{item.hla_typing}</DataItemValue>
-        </>
-      )}
       </DataArea>
       </DataPanel>
+      </>
+      )}
       <DataAreaTitle>Supplementary Information</DataAreaTitle>
       <DataPanel>
       <DataArea>
