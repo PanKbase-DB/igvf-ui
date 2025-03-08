@@ -58,6 +58,7 @@ import CuratedSet from "./curated-set";
 import Document from "./document";
 import Gene from "./gene";
 import HumanDonor from "./human-donor";
+import IndexFile from "./index-file";
 import Lab from "./lab";
 import MeasurementSet from "./measurement-set";
 import MultiplexedSample from "./multiplexed-sample";
@@ -94,6 +95,7 @@ const renderers = {
   Gene,
   HumanDonor,
   ImageFile: File,
+  IndexFile,
   InVitroSystem: Biosample,
   Lab,
   MatrixFile: File,
